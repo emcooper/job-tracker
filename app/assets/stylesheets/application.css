@@ -15,3 +15,7 @@ button {
 .index-name {
   font-size: 25px;
 }
+
+nav {
+  background-image: url("/Users/ellencooper/turing/2module/projects/job-tracker/app/assets/images/money.png");
+}
