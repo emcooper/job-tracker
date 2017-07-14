@@ -17,5 +17,6 @@ button {
 }
 
 nav {
-  background-image: url("/Users/ellencooper/turing/2module/projects/job-tracker/app/assets/images/money.png");
+  background-color: #FFD700
+  /*background-image: url("/Users/ellencooper/turing/2module/projects/job-tracker/app/assets/images/money.png");*/
 }
