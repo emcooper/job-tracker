@@ -1,5 +1,5 @@
-All Jobs for <h1 class = "page-title"><%= @company.name %></h1>
+<h1 class= "page-header">All Jobs for <%= @company.name %></h1>
 
-<% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+<% @company.jobs.each do |job| %>
+  <%= link_to job.title, company_job_path(@company, job) %><br><br>
 <% end %>
