@@ -1,7 +1,7 @@
 <%= form_for (resource) do |f| %>
   <% resource.column_names.each do |name| %>
     <%= f.label name %>
-    <%= f.text_field name %>
+    <%= f.text_field name %><br><br>
   <% end %>
   <%= f.submit :class => "btn btn-default" %>
 <% end %>
