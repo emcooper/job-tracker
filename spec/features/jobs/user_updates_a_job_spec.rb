@@ -1,7 +1,7 @@
 RSpec.feature "User updates a job" do
   scenario "user can edit a job" do
     job = create(:job)
-
+    # byebug
     visit("/companies/#{job.company.id}/jobs/#{job.id}")
     click_on "Edit"
     fill_in "job_title", with: "new title"

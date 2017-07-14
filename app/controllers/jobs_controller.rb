@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
-  before_action :find_job, only: [:edit]
+  before_action :find_job, only: [:edit, :update]
+  before_action :find_company, only: [:edit, :create]
 
   def index
     @company = Company.find(params[:company_id])
@@ -12,7 +13,6 @@ class JobsController < ApplicationController
   end
 
   def create
-    @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
@@ -27,11 +27,12 @@ class JobsController < ApplicationController
   end
 
   def edit
-    # implement on your own!
+
   end
 
   def update
-    # implement on your own!
+    @job.update(job_params)
+    redirect_to company_job_path(@job.company, @job)
   end
 
   def destroy
@@ -46,5 +47,10 @@ class JobsController < ApplicationController
 
   def find_job
     @job = Job.find(params[:id])
+  end
+
+  def find_company
+    # byebug
+    @company = Company.find(params[:company_id])
   end
 end
