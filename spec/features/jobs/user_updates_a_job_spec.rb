@@ -3,7 +3,9 @@ RSpec.feature "User updates a job" do
     job = create(:job)
     # byebug
     visit("/companies/#{job.company.id}/jobs/#{job.id}")
-    click_on "Edit"
+    within("button.edit") do
+      click_link "Edit"
+    end
     fill_in "job_title", with: "new title"
     fill_in "job_level_of_interest", with: "27"
     click_on "Update Job"

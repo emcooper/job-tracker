@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :find_job, only: [:edit, :update]
+  before_action :find_job, only: [:edit, :update, :destroy]
   before_action :find_company, only: [:edit, :create]
 
   def index
@@ -36,7 +36,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    # implement on your own!
+    @job.destroy
+    redirect_to @job.company
   end
 
   private
