@@ -1,3 +1,7 @@
+require 'rails_helper'
+require 'database_cleaner'
+require 'factory_girl_rails'
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -12,8 +16,4 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-end
-
-class Test::Unit::TestCase
-  include FactoryGirl::Syntax::Methods
 end
