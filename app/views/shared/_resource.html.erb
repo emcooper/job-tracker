@@ -1,6 +1,6 @@
 
   <div class= "<%=resource.index_tag %>">
-    <%= link_to resource.name, resource %><br>
+    <%= link_to resource.try(:name), resource %><br>
     <button type="button" class="btn btn-default">
       <%= link_to "Edit", [:edit, resource] %>
     </button>
