@@ -5,6 +5,7 @@ FactoryGirl.define do
     city              "Denver"
     level_of_interest  100
     company
+    category
   end
 
   sequence(:title) { |n| "#{n} Job Title" }
