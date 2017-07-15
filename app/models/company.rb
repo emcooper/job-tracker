@@ -5,4 +5,8 @@ class Company < ApplicationRecord
   def column_names
     [:name]
   end
+
+  def index_tag
+    "index-name #{self.class.name.downcase}_#{id}"
+  end
 end

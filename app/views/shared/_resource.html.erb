@@ -1,0 +1,10 @@
+
+  <div class= "<%=resource.index_tag %>">
+    <%= link_to resource.name, resource %><br>
+    <button type="button" class="btn btn-default">
+      <%= link_to "Edit", [:edit, resource] %>
+    </button>
+    <button type="button" class="btn btn-default">
+      <%= link_to "Delete", resource, method: "delete" %>
+    </button><br><br>
+  </div>
