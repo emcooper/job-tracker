@@ -1,5 +1,5 @@
 module Resources
-  def index_tag
-    "index-name #{self.class.name.downcase}_#{id}"
+  def column_names
+    self.attribute_names.reject {|name| ["id", "created_at", "updated_at"].include?(name)}
   end
 end
