@@ -10,7 +10,10 @@ Level of Interest: <%= @job.level_of_interest %>
 City: <%= @job.city %>
 <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %><br><br>
+Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+Category: <%= link_to @job.category.title, category_path(@job.category) %>
+<br><br>
 <button type="button" class="btn btn-default edit">
   <%= link_to "Edit", edit_company_job_path(@job.company, @job) %>
 </button>

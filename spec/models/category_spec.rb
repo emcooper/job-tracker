@@ -16,4 +16,10 @@ RSpec.describe Category, type: :model do
       expect(category).to be_valid
     end
   end
+  describe "Class Methods" do
+    it "self.titles returns array of all titles" do
+      cat_1, cat_2 = create_list(:category, 2)
+      expect(Category.titles).to eq([cat_1.title, cat_2.title])
+    end
+  end
 end
