@@ -1,19 +1,19 @@
 <%= form_for [@company, @job] do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title %><br><br>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description %><br><br>
 
   <%= f.label :level_of_interest %>
-  <%= f.number_field :level_of_interest %>
+  <%= f.number_field :level_of_interest %><br><br>
 
   <%= f.label :city %>
-  <%= f.text_field :city %>
+  <%= f.text_field :city %><br><br>
 
   <%= f.label :category %>
-  <!-- <%= select_tag(:category_id, options_for_select(Category.titles)) %> -->
   <%= collection_select(:job, :category_id, Category.all, :id, :title, :prompt => 'Please select category') %>
-
+  <%= link_to "New Category", new_category_path, :class => "btn btn-default"%>
+<br><br>
   <%= f.submit :class => "btn btn-default" %>
 <% end %>
