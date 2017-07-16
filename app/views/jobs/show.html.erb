@@ -18,15 +18,14 @@ Category: <%= link_to @job.category.title, category_path(@job.category) %>
 
 <%= link_to "Delete", company_job_path(@job.company, @job), method: :delete, :class => "btn btn-default" %><br>
 <br><br>
-<h5>Comments</h5>
-<div class="comments">
-<% @job.comments.order("created_at").each do |comment| %>
-  <p><%= comment.content %></p>
-<% end %>
-
+<div class = "list_group" id = "comments">
+  <li class="list-group-item list-group-item-info">Comments</li>
+  <% @job.comments.order("created_at").each do |comment| %>
+    <li class="list-group-item "><%= comment.content %></li>
+  <% end %>
 </div>
 <%= form_for [@company, @job, @comment] do |f| %>
 <%= f.label :comment %>
 <%= f.text_field :content %>
-<%= f.submit %>
+<%= f.submit :class => "btn btn-default edit" %>
 <% end %>

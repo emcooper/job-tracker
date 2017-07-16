@@ -20,3 +20,11 @@ nav {
   background-color: #FFD700
   /*background-image: url("/Users/ellencooper/turing/2module/projects/job-tracker/app/assets/images/money.png");*/
 }
+
+#comments {
+  margin: 0px 100px 20px 100px;
+}
+
+#comment_content {
+  width: 50%;
+}
