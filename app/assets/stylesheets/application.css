@@ -28,3 +28,16 @@ nav {
 #comment_content {
   width: 50%;
 }
+
+.contacts {
+  border: 5px solid #48D1CC;
+  margin: 0px 200px 20px 200px;
+  padding: 0px 20px 20px 20px;
+}
+
+.contact {
+  border: 3px solid #48D1CC;
+  background-color: rgba(72,209,204, 0.1);
+  margin: 10px 150px;
+  padding: 5px 0px;
+}

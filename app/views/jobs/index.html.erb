@@ -4,20 +4,24 @@
   <%= link_to job.title, company_job_path(@company, job) %><br><br>
 <% end %>
 
-<h3>Contacts</h3>
+<div class="contacts">
+<h3 class= "page-header">Contacts</h3>
 <% @company.contacts.each do |contact| %>
-  <%= contact.name %>
-  <%= contact.position %>
-  <%= contact.email %>
+<div class="contact">
+  <%= contact.name %><br>
+  <%= contact.position %><br>
+  <%= contact.email %><br>
+</div>
 <% end %>
 
-<h4>Create a new Contact</h4>
+<p>Create a new Contact</p>
 <%= form_for [@company, @contact] do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br>
   <%= f.label :position %>
-  <%= f.text_field :position %>
+  <%= f.text_field :position %><br>
   <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.submit %>
+  <%= f.text_field :email %><br>
+  <%= f.submit :class => "btn btn-default edit" %>
 <% end %>
+</div>
