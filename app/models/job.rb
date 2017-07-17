@@ -14,6 +14,7 @@ class Job < ApplicationRecord
     Job.pluck(criteria).uniq.sort.each do |value|
       result[value] = Job.where("#{criteria}": value)
     end
+    return result.to_a.reverse.to_h if criteria == "level_of_interest"
     return result
   end
 
