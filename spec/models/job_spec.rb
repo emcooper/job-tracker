@@ -50,7 +50,6 @@ describe Job do
 
       expected = {50 => [job3],
                   5  => [job1, job2]}
-
       expect(Job.sort("interest")).to eq(expected)
     end
   end
