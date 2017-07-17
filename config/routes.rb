@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get "/jobs", to: "jobs#sort"
 
+  root 'companies#index'
+
   resources :companies do
     resource :contacts, only: [:create]
     resources :jobs do
