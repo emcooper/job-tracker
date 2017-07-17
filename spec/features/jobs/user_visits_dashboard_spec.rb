@@ -25,4 +25,16 @@ RSpec.feature "User visits dashboard" do
     expect(page).to have_content(job2.title)
     expect(page).to_not have_content(job3.title)
   end
+
+  scenario "sees top three companies ranked by average level of interest and averages" do
+    co1 = create(:company, :with_2_jobs_averaging_60_loi)
+    co2 = create(:company, :with_3_jobs_averaging_50_loi)
+    co3 = create(:company, :with_3_jobs_averaging_80_loi)
+    co4 = create(:company, :with_2_jobs_averaging_30_loi)
+    visit ("/dashboard")
+  
+    expect("#{co3.name}").to appear_before("#{co1.name}")
+    expect("#{co1.name}").to appear_before("#{co2.name}")
+    expect(page).to_not have_content(co4.name)
+  end
 end

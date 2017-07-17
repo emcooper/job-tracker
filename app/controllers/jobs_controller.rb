@@ -43,7 +43,7 @@ class JobsController < ApplicationController
   def dashboard
     @jobs_interest_count = Job.count(:level_of_interest)
     @jobs_city_count = Job.count(:city)
-    
+    @top_companies_by_interest = Company.top_by_interest
   end
 
   def sort
