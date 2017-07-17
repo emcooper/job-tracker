@@ -41,11 +41,18 @@ class JobsController < ApplicationController
   end
 
   def dashboard
+    @jobs_interest_count = Job.count(:level_of_interest)
+    @jobs_city_count = Job.count(:city)
+    
   end
 
   def sort
-    @criteria = params[:sort]
-    @result = Job.sort(@criteria)
+    if @criteria = params[:sort]
+      @result = Job.sort(@criteria)
+    elsif @criteria = params[:location]
+      @result = Job.filter_location(@criteria)
+      render "filter"
+    end
   end
 
   private
@@ -59,7 +66,6 @@ class JobsController < ApplicationController
   end
 
   def find_company
-    # byebug
     @company = Company.find(params[:company_id])
   end
 end

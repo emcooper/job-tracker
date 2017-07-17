@@ -1,3 +1,11 @@
 <h1 class= "page-header">Jobs Dashboard</h1>
-<%= link_to "Jobs by Location", jobs_path(:sort => "location") %>
+<%= link_to "Jobs by Location", jobs_path(:sort => "location") %><br>
 <%= link_to "Jobs by Interest", jobs_path(:sort => "interest") %>
+<h3>Job Count by Interest</h3>
+<% @jobs_interest_count.each do |count| %>
+  <p>Interest Level <%= count[0] %>: <%= count[1] %> jobs</p>
+<% end %>
+<h3>Job Count by City</h3>
+<% @jobs_city_count.each do |count| %>
+  <%= link_to "#{count[0]}: #{count[1]} jobs", jobs_path(:location => "#{count[0]}") %><br>
+<% end %>

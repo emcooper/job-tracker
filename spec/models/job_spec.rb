@@ -52,5 +52,27 @@ describe Job do
                   5  => [job1, job2]}
       expect(Job.sort("interest")).to eq(expected)
     end
+    it "#count returns nested array of counts by interest level" do
+      job1, job2 = create_list(:job, 2, level_of_interest: 5)
+      job3 = create(:job, level_of_interest: 50)
+      expected = [[5, 2], [50, 1]]
+
+      expect(Job.count(:level_of_interest)).to eq(expected)
+    end
+    it "#count returns nested array of counts by city" do
+      job1, job2 = create_list(:job, 2, city: "Denver")
+      job3 = create(:job, city: "Chicago")
+
+      expected = [["Chicago", 1], ["Denver", 2]]
+
+      expect(Job.count(:city)).to eq(expected)
+    end
+    it "#filter returns array of jobs matching city" do
+      job1, job2 = create_list(:job, 2, city: "Denver")
+      job3 = create(:job, city: "Chicago")
+
+      expect(Job.filter_location("denver")).to eq([job1, job2])
+      expect(Job.filter_location("chicago")).to eq([job3])
+    end
   end
 end

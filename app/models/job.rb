@@ -17,6 +17,14 @@ class Job < ApplicationRecord
     return result
   end
 
+  def self.count(criteria)
+    Job.group(criteria).count(:id).sort
+  end
+
+  def self.filter_location(city)
+    Job.where(city: city.capitalize)
+  end
+
   def self.convert_to_attribute_name(criteria)
     return "city" if criteria == "location"
     return "level_of_interest" if criteria == "interest"
