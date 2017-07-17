@@ -34,4 +34,24 @@ describe Job do
       expect(job).to respond_to(:company)
     end
   end
+  describe "class methods" do
+    it "#sort returns hash of jobs sorted by city" do
+      job1, job2 = create_list(:job, 2, city: "Denver")
+      job3 = create(:job, city: "Chicago")
+
+      expected = {"Chicago" => [job3],
+                  "Denver"  => [job1, job2]}
+
+      expect(Job.sort("location")).to eq(expected)
+    end
+    it "#sort returns hash of jobs sorted by level_of_interest" do
+      job1, job2 = create_list(:job, 2, level_of_interest: 5)
+      job3 = create(:job, level_of_interest: 50)
+
+      expected = {50 => [job3],
+                  5  => [job1, job2]}
+
+      expect(Job.sort("interest")).to eq(expected)
+    end
+  end
 end

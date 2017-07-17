@@ -28,7 +28,6 @@ class JobsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -39,6 +38,14 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     redirect_to @job.company
+  end
+
+  def dashboard
+  end
+
+  def sort
+    @criteria = params[:sort]
+    @result = Job.sort(@criteria)
   end
 
   private
